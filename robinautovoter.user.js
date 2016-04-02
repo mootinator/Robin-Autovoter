@@ -17,11 +17,11 @@ function sendMessage(message){
 }
 
 $(function() {
-    var robinCommand = "grow";
+    var robinCommand = GM_getValue("robinCommand","grow");
     
     $('body').prepend('<div id="doIStayOrDoIGrowNow">Autovoting ' + robinCommand + '</div><button id="stay">Stay</button><button id="grow">Grow</button></div>');
-    $('#grow').click(function() { robinCommand = "grow"; updateStatus("Grow"); });
-    $('#stay').click(function() { robinCommand = "stay"; updateStatus("Stay"); });
+    $('#grow').click(function() { robinCommand = "grow"; updateStatus("Grow"); GM_setValue("robinCommand", "grow"); });
+    $('#stay').click(function() { robinCommand = "stay"; updateStatus("Stay"); GM_setValue("robinCommand", "stay"); });
     
     setTimeout(function(){
     var participants = $(".robin-room-participant").length;
