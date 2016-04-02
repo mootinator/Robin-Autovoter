@@ -5,7 +5,8 @@
 // @description  Autovotes via text on /r/robin
 // @author       /u/mootinator
 // @match        https://www.reddit.com/robin*
-// @grant        none
+// @grant        GM_getValue
+// @grant        GM_setValue
 // ==/UserScript==
 /* jshint -W097 */
 'use strict';
