@@ -23,7 +23,7 @@ function updateStatus() {
 var robinCommand = "grow";
 
 $(function() {
-    $('body').prepend('<div id="doIStayOrDoIGrowNow">Autovoting " + robinCommand + "</div><button id="stay">Stay</button><button id="grow">Grow</button></div>');
+    $('body').prepend('<div id="doIStayOrDoIGrowNow">Autovoting ' + robinCommand + '</div><button id="stay">Stay</button><button id="grow">Grow</button></div>');
     $('#grow').click(function() { robinCommand = "grow"; updateStatus(); });
     $('#stay').click(function() { robinCommnad = "stay"; updateStatus(); });
 });
