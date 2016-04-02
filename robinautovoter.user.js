@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Robin Autovoter
 // @namespace    http://jerl.im
-// @version      3.2
+// @version      3.3
 // @description  Autovotes via text on /r/robin
 // @author       /u/mootinator
 // @match        https://www.reddit.com/robin*
@@ -16,19 +16,14 @@ function sendMessage(message){
     $("#robinSendMessage > input[type='submit']").click();
 }
 
-function updateStatus() {
-    $('#doIStayOrDoIGrowNow').text('Autovoting ' + robinCommand);
-}
-
-var robinCommand = "grow";
-
 $(function() {
+    var robinCommand = "grow";
+    
     $('body').prepend('<div id="doIStayOrDoIGrowNow">Autovoting ' + robinCommand + '</div><button id="stay">Stay</button><button id="grow">Grow</button></div>');
-    $('#grow').click(function() { robinCommand = "grow"; updateStatus(); });
-    $('#stay').click(function() { robinCommand = "stay"; updateStatus(); });
-});
-
-setTimeout(function(){
+    $('#grow').click(function() { robinCommand = "grow"; updateStatus("Grow"); });
+    $('#stay').click(function() { robinCommand = "stay"; updateStatus("Stay"); });
+    
+    setTimeout(function(){
     var participants = $(".robin-room-participant").length;
     var partiText = "";
     if (participants == 200) partiText = 200 + " " + $(".robin-user-list-overflow-indicator").text();
@@ -40,3 +35,11 @@ setTimeout(function(){
         window.location.reload();
     }, 300000);
 }, 5000);
+});
+
+function updateStatus(cmd) {
+    $('#doIStayOrDoIGrowNow').text('Autovoting ' + cmd);
+}
+
+
+
