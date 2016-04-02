@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Robin Autovoter
 // @namespace    http://jerl.im
-// @version      1.9
+// @version      3.0
 // @description  Autovotes via text on /r/robin
-// @author       /u/keythkatz
+// @author       /u/mootinator
 // @match        https://www.reddit.com/robin*
 // @grant        none
 // ==/UserScript==
@@ -21,9 +21,8 @@ setTimeout(function(){
     if (participants == 200) partiText = 200 + " " + $(".robin-user-list-overflow-indicator").text();
     else partiText = participants;
     
-    sendMessage("/vote grow");
-    if(Math.random() < 0.2) sendMessage("[Robin Autovoter 1.9] Autovoted grow! https://www.reddit.com/r/joinrobin/comments/4cx02w/better_working_automatic_grow_script/");
-    setTimeout(function(){sendMessage("[Robin Autovoter 1.9] " + partiText + " in this room! " + $("span:contains('Voting will end')").first().text());}, 10000);
+    sendMessage("/vote stay");
+    if(Math.random() < 0.2) sendMessage("[Robin Autovoter 3.0] Autovoted stay!");
     setTimeout(function(){
         window.location.reload();
     }, 300000);
