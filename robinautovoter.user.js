@@ -34,7 +34,7 @@ setTimeout(function(){
     if (participants == 200) partiText = 200 + " " + $(".robin-user-list-overflow-indicator").text();
     else partiText = participants;
     
-    sendMessage("/vote " + command);
+    sendMessage("/vote " + robinCommand);
     if(Math.random() < 0.2) sendMessage("[Robin Autovoter 3.0] Autovoted " + robinCommand + "!");
     setTimeout(function(){
         window.location.reload();
